@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import ListSubjects from './ListSubjects';
 
-const SearchBySubject = () => {
+const SearchBySubject = (props) => {
   const [password, setPassword] = useState('');
 
   return (
     <View>
-      <Text>Enter Password:</Text>
-      <TextInput
-        style={styles.input}
-        autoCapitalize="none"
-        autoCorrect={false}
-        value={password}
-        onChangeText={newValue => setPassword(newValue)}
-      />
-      {password.length < 4 ? <Text>Password must be 4 characters</Text> : null}
+      <ListSubjects navigation={props.screenProps.navigation} resultsSubject={props.screenProps.resultsSubject}></ListSubjects>
     </View>
   );
 };

@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 export default () => {
   const [results, setResults] = useState([]);
+  const [resultsSubject, setResultsSubject] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
   const searchApi = async searchTerm => {
@@ -26,11 +27,25 @@ export default () => {
       const event = require('./db.json').events;
       console.log("Here searchApiWithoutParameters " + `${event.length}`);
       setResults(event);
+      setResultsSubject(event);
     } 
     catch (err) {
       setErrorMessage('Something went wrong');
     }
 
+  }
+  const searchApiWithSubject = async searchTerm => {
+    try {     
+      const events = require('./db.json').events;     
+      const data = _.filter(events, event => {
+        return containsSubject(event, searchTerm)
+      }) 
+      console.log("Here searchApiWithSubject " + `${data.length}`);
+      setResultsSubject(data);
+    } 
+    catch (err) {
+      setErrorMessage('Something went wrong');
+    }
   }
 
   const searchApiWithParameters = async searchTerm => {
@@ -78,6 +93,14 @@ export default () => {
 
     return false;
   };
+  const containsSubject = (event, query) => {
+    const { subject } = event;
+    if (subject.includes(query)) {
+      return true;
+    }
+
+    return false;
+  };
 
   // Call searchApi when component
   // is first rendered.  BAD CODE!
@@ -88,5 +111,5 @@ export default () => {
     searchApiWithoutParameters();
   }, []);
 
-  return [searchApiWithParameters, searchApiWithoutParameters, searchApiWithId, results, errorMessage];
+  return [searchApiWithParameters, searchApiWithSubject, searchApiWithoutParameters, searchApiWithId, results, resultsSubject, errorMessage];
 };

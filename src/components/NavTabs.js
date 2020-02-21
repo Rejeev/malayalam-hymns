@@ -5,11 +5,17 @@ import SearchBySubject from '../screens/SearchBySubject';
 const NavTabs = createMaterialTopTabNavigator(
   {
     SearchByText: {
-        screen: SearchByHymn
+        screen: SearchByHymn,
+        navigationOptions: {  tabBarLabel: 'FIRST LINES' },
    },
    SearchBySubject: {
-       screen: SearchBySubject
-   }
+       screen: SearchBySubject,
+       navigationOptions: {  tabBarLabel: 'SUBJECTS' }, 
+   },
+   SearchByHistory: {
+    screen: SearchBySubject,
+    navigationOptions: {  tabBarLabel: 'HISTORY' }, 
+}
   },
   {
     tabBarOptions: {
@@ -19,6 +25,7 @@ const NavTabs = createMaterialTopTabNavigator(
         justifyContent: "center"
       },
       indicatorStyle: {
+        height: '100%',
         backgroundColor: "#fcc11e"
       },
       style: {

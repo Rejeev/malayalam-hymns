@@ -15,7 +15,7 @@ const Search = ({ text, onChange, onHymnSubmit }) => {
                 style={{
                     backgroundColor: '#2f363c',
                     height: 50,
-                    fontSize: 30,
+                    fontSize: 20,
                     padding: 10,
                     color: 'white',
                     borderBottomWidth: 0.5,

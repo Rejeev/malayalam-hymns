@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Hymns from './Hymns';
+import ListHymns from './ListHymns';
 
 const SearchByHymn = (props) => {
   return (
     <View>
-      <Hymns navigation={props.screenProps.navigation} results={props.screenProps.results}></Hymns>
+       <ListHymns navigation={props.screenProps.navigation} results={props.screenProps.results}></ListHymns>
     </View>
   );
 };

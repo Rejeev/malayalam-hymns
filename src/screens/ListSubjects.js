@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity } from 'react-native'
-import Hymn from './Hymn';
+import ListHymn from './ListHymn';
 import { withNavigation } from 'react-navigation';
 import _ from 'lodash';
 import useResults from '../hooks/useResults';
@@ -13,9 +13,8 @@ const styles = StyleSheet.create({
     },
 });
 
-const Hymns = ({results, navigation}) => {
-   
-  
+const ListSubjects = ({resultsSubject, navigation}) => {
+     
     return (
         <View
             style={{
@@ -27,24 +26,23 @@ const Hymns = ({results, navigation}) => {
         >
             <FlatList
                 key="flatlist"
-                data={results}
+                data={resultsSubject}
                 style={styles.list}               
                 renderItem={({ item }) => {
                     return (
                       <TouchableOpacity
-                        onPress={() => {
-                            console.log(item.number);
-                          navigation.navigate('ResultsShow', { id: item.number })
-                        }
+                        onPress={() => {                          
+                          navigation.navigate('sShow', { id: item.number })
+                        } 
                         }
                       >
-                        <Hymn event={item} />
+                        <ListHymn event={item} />
                       </TouchableOpacity>
                     );
                   }}
-                keyExtractor={result => result.number}
+                keyExtractor={resultsSubject => resultsSubject.number}
             />
         </View>
     );
 }
-export default Hymns;
+export default ListSubjects;

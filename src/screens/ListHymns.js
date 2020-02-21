@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity } from 'react-native'
-import Hymn from './Hymn';
+import ListHymn from './ListHymn';
 import { withNavigation } from 'react-navigation';
 import _ from 'lodash';
 import useResults from '../hooks/useResults';
@@ -13,9 +13,8 @@ const styles = StyleSheet.create({
     },
 });
 
-const Hymns = ({results, navigation}) => {
-   
-  
+const ListHymns = ({results, navigation}) => {
+     
     return (
         <View
             style={{
@@ -32,13 +31,12 @@ const Hymns = ({results, navigation}) => {
                 renderItem={({ item }) => {
                     return (
                       <TouchableOpacity
-                        onPress={() => {
-                            console.log(item.number);
+                        onPress={() => {                          
                           navigation.navigate('ResultsShow', { id: item.number })
                         }
                         }
                       >
-                        <Hymn event={item} />
+                        <ListHymn event={item} />
                       </TouchableOpacity>
                     );
                   }}
@@ -47,4 +45,4 @@ const Hymns = ({results, navigation}) => {
         </View>
     );
 }
-export default Hymns;
+export default ListHymns;

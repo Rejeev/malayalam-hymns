@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 39196,
-  "expoServerNgrokUrl": "https://hv-c3g.anonymous.rn-starter.exp.direct",
-  "packagerNgrokUrl": "https://packager.hv-c3g.anonymous.rn-starter.exp.direct",
-  "ngrokPid": 14824
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://hv-c3g.anonymous.malayalam-hymns.exp.direct",
+  "packagerNgrokUrl": "https://packager.hv-c3g.anonymous.malayalam-hymns.exp.direct",
+  "ngrokPid": 21948
 }
