@@ -61,6 +61,20 @@ export default () => {
       setErrorMessage('Something went wrong');
     }
   }
+  const searchApiWithNumbers = async searchTerm => {
+    try {
+      const events = require('./db.json').events;
+      const data = _.filter(events, event => {
+        return containsNumbers(event, searchTerm)
+      })
+      console.log("Here searchApiWithNumbers " + `${data.length}`);
+      setResults(data);
+    } 
+    catch (err) {
+      setErrorMessage('Something went wrong');
+    }
+  }
+
   const searchApiWithId = async searchTerm => {
     try {
       const events = require('./db.json').events;
@@ -93,6 +107,14 @@ export default () => {
 
     return false;
   };
+  const containsNumbers = (event, query) => {
+    const { number } = event;
+    if (number.includes(query)) {
+      return true;
+    }
+
+    return false;
+  };
   const containsSubject = (event, query) => {
     const { subject } = event;
     if (subject.includes(query)) {
@@ -111,5 +133,5 @@ export default () => {
     searchApiWithoutParameters();
   }, []);
 
-  return [searchApiWithParameters, searchApiWithSubject, searchApiWithoutParameters, searchApiWithId, results, resultsSubject, errorMessage];
+  return [searchApiWithNumbers, searchApiWithParameters, searchApiWithSubject, searchApiWithoutParameters, searchApiWithId, results, resultsSubject, errorMessage];
 };

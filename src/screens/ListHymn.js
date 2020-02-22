@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Text,
     View,
-    StyleSheet,Image
+    StyleSheet, Image
 } from 'react-native';
 import PropTypes from 'prop-types';
 

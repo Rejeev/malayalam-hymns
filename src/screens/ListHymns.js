@@ -6,11 +6,10 @@ import _ from 'lodash';
 import useResults from '../hooks/useResults';
 
 const styles = StyleSheet.create({
-    list: {
-        flex: 1,
+    list: {     
         paddingTop: 20,
         backgroundColor: '#F3F3F3'
-    },
+    }
 });
 
 const ListHymns = ({results, navigation}) => {
@@ -19,8 +18,7 @@ const ListHymns = ({results, navigation}) => {
         <View
             style={{
                 paddingVertical: 20,
-                borderTopWidth: 1,
-                height: 1000,
+                borderTopWidth: 1,               
                 borderColor: "#CED0CE"
             }}
         >
